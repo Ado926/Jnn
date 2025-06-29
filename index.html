@@ -1,1 +1,96 @@
 
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Adonix API v2 Tester</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 600px;
+      margin: 3em auto;
+      background: #fff;
+      padding: 2em;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    }
+    h1 {
+      text-align: center;
+      color: #444;
+    }
+    label {
+      display: block;
+      margin-top: 1em;
+    }
+    input, select {
+      width: 100%;
+      padding: 0.8em;
+      margin-top: 0.5em;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+    button {
+      margin-top: 2em;
+      width: 100%;
+      padding: 1em;
+      background-color: #0070f3;
+      color: white;
+      font-size: 1em;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #005ccc;
+    }
+    iframe {
+      margin-top: 2em;
+      width: 100%;
+      height: 80px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Adonix API v2 Tester</h1>
+    <label for="type">Tipo de descarga:</label>
+    <select id="type">
+      <option value="ytmp3">🎵 YouTube MP3</option>
+      <option value="ytmp4">🎥 YouTube MP4</option>
+    </select>
+
+    <label for="url">Enlace de YouTube:</label>
+    <input type="text" id="url" placeholder="https://youtu.be/tuVideoID">
+
+    <label for="apikey">API Key:</label>
+    <input type="text" id="apikey" value="adonix">
+
+    <button onclick="descargar()">Probar</button>
+
+    <iframe id="result" frameborder="0"></iframe>
+  </div>
+
+  <script>
+    function descargar() {
+      const type = document.getElementById('type').value
+      const url = document.getElementById('url').value
+      const apikey = document.getElementById('apikey').value
+      const result = document.getElementById('result')
+
+      if (!url.includes('youtube')) {
+        alert('URL inválida')
+        return
+      }
+
+      result.src = `/api/${type}?url=${encodeURIComponent(url)}&apikey=${apikey}`
+    }
+  </script>
+</body>
+</html>
+
