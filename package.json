@@ -1,0 +1,8 @@
+{
+  "name": "adonix-api-v2-vercel",
+  "version": "2.0.0",
+  "type": "module",
+  "dependencies": {
+    "ytdl-core": "^4.11.2"
+  }
+}
