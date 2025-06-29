@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Adonix API v2 Dashboard</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <h1>📊 Adonix API v2</h1>
+  <p>Total requests: <%= stats.total %></p>
+  <ul>
+    <% for (let key in stats.endpoints) { %>
+      <li><%= key %>: <%= stats.endpoints[key] %></li>
+    <% } %>
+  </ul>
+</body>
+</html>
